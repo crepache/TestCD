@@ -11,5 +11,13 @@ jobs:
     steps:
       - name: GITHUB_REF
         run: echo running on branch ${GITHUB_REF}
-      - name: GITHUB_EVENT_NAME
-        run: echo ${GITHUB_EVENT_NAME}
+      - name: GITHUB_HEAD_REF
+        run: echo ${GITHUB_HEAD_REF}
+      - name: GITHUB_BASE_REF
+        run: echo ${GITHUB_BASE_REF}
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          CUSTOM_TAG: ${GITHUB_EVENT_NAME}
