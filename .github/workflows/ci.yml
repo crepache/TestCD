@@ -11,5 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: get version from package.json
+      - name: get_version
         run: grep version package.json|cut -d '"' -f4
+      - name: try to recovery version
+        run: ${{ steps.get_version }}
+      - name: try to recovery version outputs
+        run: ${{ steps.get_version.outputs }}
