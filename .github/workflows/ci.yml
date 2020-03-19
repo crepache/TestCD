@@ -8,11 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: contains(github.ref, 'release') && (github.event.pull_request.merged == true)
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-    - name: Branch name 1
+    - name: GITHUB_REF
       run: echo running on branch ${GITHUB_REF}
+    - name: GITHUB_EVENT_NAME
+      run: echo github.event_name
