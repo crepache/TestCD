@@ -15,19 +15,3 @@ jobs:
         fetch-depth: '0'
     - name: Branch name 1
       run: echo running on branch ${GITHUB_REF}
-    - name: Branch name 2
-      run: echo running on branch ${GITHUB_HEAD_REF}
-    - name: Branch name 3
-      run: echo running on branch ${GITHUB_BASE_REF}
-    - name: Branch name 4
-      run: echo running on branch ${GITHUB_BASE_REF}
-    - name: Branch name 5
-      run: echo running on branch ${GITHUB_BASE_REF}
-
-
-
-    - name: Bump version and Push new tag
-      uses: anothrNick/github-tag-action@1.18.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CUSTOM_TAG: v${GITHUB_REF##*/}
