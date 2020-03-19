@@ -9,9 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: GITHUB_REF
-      run: echo running on branch ${GITHUB_REF}
-    - name: GITHUB_EVENT_NAME
-      run: echo ${GITHUB_EVENT_NAME}
-    - name: get version from package.json
-      run: grep version package.json|cut -d '"' -f4
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: get version from package.json
+        run: grep version package.json|cut -d '"' -f4
