@@ -7,9 +7,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
     steps:
       - name: GITHUB_REF
         run: echo running on branch ${GITHUB_REF}
       - name: GITHUB_EVENT_NAME
         run: echo ${GITHUB_EVENT_NAME}
+      - name: GITHUB_MERGED
