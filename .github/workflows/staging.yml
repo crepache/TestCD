@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: release value
-        run: contains(github.ref, 'release')
+        run: contains(${GITHUB_REF}, 'release')
       - name: event merged
         run: github.event.pull_request.merged
       - name: Bump version and Push new tag
