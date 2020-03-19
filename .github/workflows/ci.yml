@@ -19,5 +19,6 @@ jobs:
       uses: anothrNick/github-tag-action@1.17.2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
         WITH_V: true
         CUSTOM_TAG: ${ GITHUB_REF##*/ }
