@@ -7,7 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: contains(github.ref, 'release') && (github.event.pull_request.merged == true)
     steps:
       - name: release value
         run: echo Branch contains release value  contains(github.ref, 'release')
