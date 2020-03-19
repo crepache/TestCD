@@ -12,6 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: get_version
-        run: export VARIAVEL=`grep version package.json|cut -d '"' -f4`
-      - name: output_tests
-        run: echo $VARIAVEL
+        run: VARIAVEL=`grep version package.json|cut -d '"' -f4` && echo $VARIAVEL
