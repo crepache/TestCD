@@ -1,23 +1,17 @@
-name: Publishing the TAG
+# name: Publishing the TAG
 
-on:
-  pull_request:
-    types: [closed]
+# on:
+#   pull_request:
+#     types: [closed]
 
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    if: (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
-    steps:
-      - name: GITHUB_REF
-        run: echo running on branch ${GITHUB_REF}
-      - name: GITHUB_HEAD_REF
-        run: echo ${GITHUB_HEAD_REF}
-      - name: GITHUB_BASE_REF
-        run: echo ${GITHUB_HEAD_REF##*/}
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.17.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          CUSTOM_TAG: ${GITHUB_HEAD_REF##*/}
+# jobs:
+#   publish:
+#     runs-on: ubuntu-latest
+#     if: (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+#     steps:
+#       - name: GITHUB_REF
+#         run: echo running on branch ${GITHUB_REF}
+#       - name: GITHUB_HEAD_REF
+#         run: echo ${GITHUB_HEAD_REF}
+#       - name: GITHUB_BASE_REF
+#         run: echo ${GITHUB_HEAD_REF##*/}

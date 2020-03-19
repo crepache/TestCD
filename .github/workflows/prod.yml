@@ -9,9 +9,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: GITHUB_REF PROD
-        run: echo running on branch ${GITHUB_REF}
-      - name: GITHUB_HEAD_REF PROD
-        run: echo ${GITHUB_HEAD_REF}
-      - name: GITHUB_BASE_REF PROD
-        run: echo ${GITHUB_HEAD_REF##*/}
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.17.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
