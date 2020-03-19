@@ -1,8 +1,9 @@
 name: CI
 
 on:
-  watch:
-    types: [started]
+  push:
+    branches:
+      - 'master'
 
 jobs:
   build:
@@ -10,7 +11,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
       with:
-        node-version: 12
+        fetch-depth: '0'
+    - name: Bump version and Push new tag
+      uses: anothrNick/github-tag-action@1.17.2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
