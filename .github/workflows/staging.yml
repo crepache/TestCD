@@ -8,12 +8,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: release value
-        run: contains(${GITHUB_REF}, 'release')
-      - name: event merged
-        run: github.event.pull_request.merged
-      - name: Bump version and Push new tag
-        uses: anothrNick/github-tag-action@1.18.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_TAG: v${GITHUB_REF}
+      - name: GITHUB_REF
+        run: echo running on branch ${GITHUB_REF}
+      - name: GITHUB_EVENT_NAME
+        run: echo ${GITHUB_EVENT_NAME}
