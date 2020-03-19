@@ -14,4 +14,4 @@ jobs:
     - name: GITHUB_EVENT_NAME
       run: echo ${GITHUB_EVENT_NAME}
     - name: get version from package.json
-      run: echo grep version package.json|cut -d '"' -f4
+      run: grep version package.json|cut -d '"' -f4
