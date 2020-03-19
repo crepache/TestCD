@@ -16,8 +16,8 @@ jobs:
     - name: Branch name
       run: echo running on branch ${GITHUB_REF##*/}
     - name: Bump version and Push new tag
-      uses: anothrNick/github-tag-action@1.17.2
+      uses: anothrNick/github-tag-action@1.18.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        CUSTOM_TAG: ${ GITHUB_REF##*/ }
+        CUSTOM_TAG: '0.4.1'
