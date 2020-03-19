@@ -9,8 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.ref, 'release') && (github.event.pull_request.merged == true)
     steps:
-      - name: Branch name 1
-        run: echo running on branch ${GITHUB_REF}
+      - name: release value
+        run: echo Branch contains release value  contains(github.ref, 'release')
+      - name: event merged
+        run: echo event merged github.event.pull_request.merged
       - name: Bump version and Push new tag
         uses: anothrNick/github-tag-action@1.18.0
         env:
