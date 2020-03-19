@@ -4,13 +4,14 @@ on:
   push:
     branches:
       - 'master'
+    types: [closed]
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.17.2
         env:
