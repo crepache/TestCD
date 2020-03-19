@@ -12,6 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: get_version
-        run: echo "Tags are > ${TAG1}"
-        env:
-          tag1: grep version package.json|cut -d '"' -f4
+        run: $VARIAVEL=`grep version package.json|cut -d '"' -f4` && echo $VARIAVEL
