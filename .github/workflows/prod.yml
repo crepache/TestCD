@@ -1,0 +1,17 @@
+name: Production
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GITHUB_REF PROD
+        run: echo running on branch ${GITHUB_REF}
+      - name: GITHUB_HEAD_REF PROD
+        run: echo ${GITHUB_HEAD_REF}
+      - name: GITHUB_BASE_REF PROD
+        run: echo ${GITHUB_HEAD_REF##*/}
