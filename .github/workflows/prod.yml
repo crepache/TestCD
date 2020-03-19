@@ -14,8 +14,12 @@ jobs:
       - name: Set env
         run: echo ::set-output name=versao::$(grep version package.json|cut -d '"' -f4)
         id: get_version
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.18.0
+      # - name: Bump version and push tag
+      #   uses: anothrNick/github-tag-action@1.18.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     CUSTOM_TAG: ${{ steps.get_version.outputs.versao }}
+      - name: Publish package
+        run: npm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_TAG: ${{ steps.get_version.outputs.versao }}
