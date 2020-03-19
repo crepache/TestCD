@@ -1,16 +1,16 @@
-name: Production
+# name: Production
 
-on:
-  push:
-    branches:
-      - 'master'
+# on:
+#   push:
+#     branches:
+#       - 'master'
 
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@1.17.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_TAG: `grep version package.json|cut -d '"' -f4`
+# jobs:
+#   publish:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Bump version and push tag
+#         uses: anothrNick/github-tag-action@1.17.2
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#           CUSTOM_TAG: `grep version package.json|cut -d '"' -f4`
