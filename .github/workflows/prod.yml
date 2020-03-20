@@ -11,8 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Npm Install
-        run: npm install
+      - name: Install dependencies
+        run: ./install.sh
+        env:
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: Publish package
         run: npm run semantic-release
         env:
